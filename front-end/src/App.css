@@ -1,0 +1,198 @@
+
+
+.header{
+  width: 100% ;
+  height: 300px;
+  display: block;
+}
+
+.nav{
+  display: flex;
+  width: 100%;
+  height:20%;
+  justify-content: space-around;
+  
+}
+
+.part1{
+  width: 100px;
+  height: 100%;
+}
+
+.mail{
+  height: 50px;
+  width: 500px;
+  background-color: transparent;
+  border:transparent
+
+}
+
+.btnlogout{
+  height:50px;
+  width: 100px;
+  color: gray;
+  background-color: transparent;
+  margin-right: 5px;
+  cursor: pointer;
+  margin-left: 15px;
+  border: transparent;
+}
+
+.part2{
+  padding-left:15px ;
+  width: 400px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.search{
+  width: 100%;
+  height: 15%;
+  background-color: white;
+
+}
+
+.description{
+  background-color: blue;
+  display: block;
+  height: 80%;
+  width: 100%;
+}
+
+.info{
+  height: 80%;
+  width: 100%;
+  text-align: center;
+  background-color: blue;
+  border:2px solid blue; 
+}
+
+.main{
+  width: 80%;
+  display: flex;
+  margin: 70px;
+  height: 500px;
+
+}
+
+.list{
+  width: 30%;
+  height: 180px;
+  border: 1px solid green;
+}
+
+.question{
+  width: 70%;
+  height: 100%;
+  border: 1px solid yellow;
+}
+
+.box1{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.btnask{
+  width: 200px;
+  height: 50px;
+  background-color: blue;
+  color: white;
+  border-radius: 7px;
+  cursor:pointer;
+
+}
+
+
+
+
+.bigbox{
+  height: 700px;
+  width: 700px;
+  margin-left:280px;
+  margin-top: 50px;
+}
+
+.boxx{
+  display: flex;
+  height: 100px;
+  width:100% ;
+  margin-bottom: 10px;
+}
+
+.boxx1{
+  display: block;
+  height: 100%;
+  width: 80%;
+
+}
+
+.boxx2{
+  height: 100%;
+  width: 20%;
+
+}
+
+.title{
+  height: 50px;
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 7px;
+}
+
+.contenu{
+  height: 300px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 7px;
+  text-align: start;
+}
+
+.categories{
+height: 50px;
+width: 100%;
+}
+
+.btnadd{
+  height: 50px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: rgb(78, 78, 246);
+  color: white;
+  border-radius: 7px;
+}
+
+.connexion{
+  margin: 30px;
+  height: 550px;
+  width: 12000;
+  display: flex;
+}
+
+.iimg{
+  height: 100%;
+  width: 50%;
+  
+  
+}
+
+.img{
+  height: 100%;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px; 
+  object-fit: cover;
+}
+
+.login{
+  height: 100%;
+  width: 50%;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius:7px ;
+  padding-top: 50px;
+}
+
