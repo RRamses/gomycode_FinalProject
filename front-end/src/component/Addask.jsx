@@ -15,7 +15,7 @@ export const Addask = ()=>{
                     </div>
 
                     <div className="boxx2">
-                        <Link  to={`/`}  >
+                        <Link  to={`/home`}  >
                         <p> RETOUR</p>
                         </Link>
                     </div>

@@ -176,16 +176,24 @@ width: 100%;
 .iimg{
   height: 100%;
   width: 50%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px; 
+  background-color: blue;
+  align-items: center;
+  align-self: center;
+  align-content: center;
   
   
 }
 
 .img{
-  height: 100%;
-  width: 100%;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px; 
+  height: 80%;
+  width:80%;
+  top: 15px;
   object-fit: cover;
+  border: 2px solid blue;
+  margin: 50px;
 }
 
 .login{
