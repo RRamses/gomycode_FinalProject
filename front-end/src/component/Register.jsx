@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom"
-import forum from "./../forum.jpg"
-import  {FontAwesomeIcon} from  "@fortawesome/react-fontawesome"
-import {useRef , useState , useEffect} from "react"
-import {faCheck , faTimes , faInfoCircle} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import forum from "./../forum.jpg";
+import {useRef , useState , useEffect} from "react";
 import axios from "../api/axios";
 import Home from "./Home";
 
@@ -47,10 +45,13 @@ const Register=()=>{
 
         }catch(err){
             if(err.response.status === 403){
+                <p>no server response</p>
                 seterrMsg('no server responses')
             }else if(err.response.status=== 405) {
+                <p>registration falled</p>
                 seterrMsg('registration Falled')
             }else if(err.response.status=== 404) {
+                <p>registration falled</p>
                 seterrMsg('il y a une erreur au niveau du cryptage')
             }
             errRef.current.focus()
@@ -67,8 +68,7 @@ const Register=()=>{
         
         <div className="connexion">
 
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}
-                aria-live="assertive">{errMsg}</p>
+            
 
 
             <div className="iimg">
@@ -77,6 +77,8 @@ const Register=()=>{
 
         <div className="login" onSubmit={handleSubmit}>
             <form className="px-4 py-3" >
+
+            <p ref={errRef} id="err" className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive"> {errMsg} </p>
                 
                 <div className="form-group">
                     <label for="name">Nom</label>

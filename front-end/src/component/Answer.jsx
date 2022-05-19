@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 
 
-export const Response =()=> {
+ const Answer =()=> {
 
     
 }
+
+
+export default Answer ;

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import forum2 from "./../forum 2.jpg"
 import {useRef,useState,useEffect, } from 'react'
-import { Authcontext } from '../context/AuthProvider';
 import Home from './Home';
 import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
@@ -52,9 +51,10 @@ export const Connexion =() => {
                 seterrmsg('no server responses')
             }else if (err.response.status === 400){
                 seterrmsg('missing email or password')
-            }else if (err.response.status === 401){
-                seterrmsg('unauthorized user no found ');
+            }else if (err.response.status === 401){  
+                 seterrmsg('unauthorized user no found ');
             }else if(err.response.status=== 402) {
+            
                 seterrmsg('Login Falled password does match')
             }
             errRef.current.focus();
@@ -74,16 +74,16 @@ export const Connexion =() => {
 
         <div className="connexion">
 
-            <p ref={errRef} className={errmsg ? "errmsg" : "offscreen"}
-                aria-live="assertive">{errmsg}</p>
-
-
             <div className="iimg">
                 <img className="img" src={forum2}  alt='zz'/>
             </div>
 
         <div className="login">
             <form className="px-4 py-3" onSubmit={handleSubmit}>
+
+                <p ref={errRef} id="err" className={errmsg ? "errmsg" : "offscreen"}
+                aria-live="assertive">{errmsg}</p>
+
                 <div className="form-group">
                     <label for="exampleDropdownFormEmail1">Email address</label>
                     <input type="email" className="form-control"

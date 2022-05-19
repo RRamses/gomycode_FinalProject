@@ -4,9 +4,9 @@ import { Route , Routes } from 'react-router';
 import  'bootstrap/dist/css/bootstrap.min.css' ;
 import { Addask } from './component/Addask';
 import { Connexion } from './component/Connexion';
-import { Response } from './component/Response';
 import RequireAuth from './component/RequireAuth';
 import Register from './component/Register';
+import Answer from './component/Answer';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           
         <Route path='/home'  element={<Home/>} />
         <Route path='/addask' element={<Addask/>} />
-        <Route path='/response' element={<Response/>} />
+        <Route path='/answer' element={<Answer/>} />
 
         </Route>
 
