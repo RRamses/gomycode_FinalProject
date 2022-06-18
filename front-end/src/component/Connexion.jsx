@@ -6,7 +6,7 @@ import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 
 const LOGIN_URL='http://localhost:3500/login'
-//const LOGIN_URL=' http://127.0.0.1:3500/login'
+
 
 export const Connexion =() => {
 
@@ -40,8 +40,7 @@ export const Connexion =() => {
                 );
                 console.log(JSON.stringify(response.data))
                 const accessToken = response.data.token;
-                const roles = response.data.roles;
-                setAuth({user,pwd,roles,accessToken});
+                setAuth({user,pwd,accessToken});
                 setuser('')
                 setpwd('')
                 setsucces(true)
@@ -54,7 +53,6 @@ export const Connexion =() => {
             }else if (err.response.status === 401){  
                  seterrmsg('unauthorized user no found ');
             }else if(err.response.status=== 402) {
-            
                 seterrmsg('Login Falled password does match')
             }
             errRef.current.focus();
@@ -68,7 +66,7 @@ export const Connexion =() => {
 
         { succes ? (
         <section>
-            <Home/>
+            <Home  user={user}/>
 
         </section>) :(
 
@@ -120,7 +118,7 @@ export const Connexion =() => {
                 <button type="submit" className="btn btn-primary">connexion</button>
             </form>
                 <div className="dropdown-divider"></div> 
-               
+
                 <p className="dropdown-item" >Si vous n'avez pas de compte, vous pouvez vous  <Link to={`/`} > inscrire</Link></p>
                 <p className="dropdown-item" >Forgot password?</p>
 

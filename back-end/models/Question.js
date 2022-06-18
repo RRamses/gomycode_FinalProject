@@ -8,6 +8,7 @@ const questionSchema= new Schema({
     titre: {type:String},
     contenu:{type:String},
     categorie:{type:String},
+    reponses:[],
 
 }, {timestamps:true})
 

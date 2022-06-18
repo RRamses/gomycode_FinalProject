@@ -1,13 +1,75 @@
 
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from '../api/axios';
+import Home from "./Home";
 
 
 export const Addask = ()=>{
 
+    const titleRef = useRef();
+    const errRef = useRef();
+
+    const [title, settitle] =  useState('');
+    const [contenue , setcontenue] = useState('');
+    const [categori , setcategori] = useState('');
+
+    const [succes , setsucces] = useState(false);
+    const [errMsg , seterrMsg] = useState('');
+
+    useEffect(()=>{
+        titleRef.current.focus()
+    },[])
+
+    useEffect(()=>{
+        seterrMsg('');
+    },[title , contenue , categori ])
+
+
+    const QUESTION_URL='http://localhost:3500/addquestion' 
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault( )
+        try{
+            const response = await axios.post(QUESTION_URL,
+                JSON.stringify({titre : title , contenu: contenue , categorie: categori}),
+                {
+                    headers : {'Content-Type':'application/json'},
+                    withCredentials : true
+                }
+                );
+                console.log(JSON.stringify(response.data))
+                //const accessToken = response.data.token;
+                setsucces(true)
+
+        }catch(err){
+            if(err.response.status === 403){
+                seterrMsg('no server responses')
+            }else if(err.response.status=== 405) {
+                seterrMsg('add question Falled')
+            }
+                errRef.current.focus()
+    }
+    }
+
+    
+
+
     return(
         <>
-        <div className="addask">
-            <div className="bigbox">
+        
+        { succes ? (
+        <section>
+            <Home />
+
+        </section>) :(
+
+        <div className="addask"    >
+            <form className="bigbox" onSubmit={handleSubmit} >
+
+            <p ref={errRef} id="err" className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive"> {errMsg} </p>
+           { /*<p ref={succesRef} id="succes" className={succes ? "succes" : "offscreen"} aria-live="assertive"> {succes}</p>*/}
+
                 <div className="boxx">
                     <div className="boxx1">
                         <h2>Poser votre question</h2>
@@ -22,31 +84,43 @@ export const Addask = ()=>{
 
                 </div>
                 <h5>Titre de la question</h5>
-                <textarea className='title' placeholder='donnez un titre a votre question'/>
+                <input className='title'
+                            placeholder="donnez un titre a votre question"
+                            type="text" 
+                            id="title" 
+                            ref={titleRef}
+                            onChange={(e)=> settitle(e.target.value)}
+                            required/>
+
                 <h5>Contenu de la question</h5>
-                <textarea className='contenu'/>
-                <h5>Technologies / Categories</h5>
-                <select  className="categories">
-                        <option selected>selectionner une categorie</option>
-                        <option value="react">React</option>
-                        <option value="php" >PHP</option>
-                        <option value="java script">java script</option>
-                        <option value="java ">java </option>
-                        <option value="mongodb ">Mongodb </option>
-                        <option value="SQL ">SQL </option>
-                        <option value="mongoose">mongoose </option>
-                        <option value="node js">Node js </option>
-                        <option value="Api">API </option>
-                </select>
+                <textarea className='contenu'
+                placeholder="ecrivez votre question"
+                type="text" 
+                id="contenu" 
                 
-                <button className='btnadd'>POSEZ MA QUESTION</button>
+                onChange={(e) => setcontenue(e.target.value)}
+                required/>
+                
+                
+                <h5>Technologies / Categories</h5>
+                
+                <input className="categories"  
+                        placeholder="ecrivez la categorie de votre question"
+                        onChange={(e) => setcategori(e.target.value)}
+                        required/>
+            
+                <button type="submit" className='btnadd' >POSEZ MA QUESTION</button>
 
 
 
-            </div>
+            </form>
 
-        </div>
-    </> )
+        </div>)}
+
+
+    </> 
+    
+    )
 
 } 
 

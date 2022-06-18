@@ -3,10 +3,11 @@
 import Database from "./Database/Database.js";
 import express  from "express";
 import bodyParser from 'body-parser';
-import mongoose from "mongoose";
-import routes  from "./routes/Auth.js";
-import XMLHttpRequest from 'xhr2';
+import Authroutes  from "./routes/Auth.js";
 import cors from 'cors';
+import User from "./models/User.js";
+import Question from "./models/Question.js";
+import Getroutes from "./routes/Get.js";
 
 const app=express()
 const PORT=3500
@@ -15,6 +16,9 @@ const PORT=3500
 new Database()
 
 /* */   
+
+
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended:true
@@ -29,7 +33,8 @@ const corsOption = {
     }
 
 app.use(cors(corsOption));
-app.use(routes)
+app.use(Authroutes)
+app.use(Getroutes)
 
 
 
@@ -39,8 +44,8 @@ app.listen(PORT,(err)=>{console.log(`le server tourne sur http://127.0.0.1:${POR
 
 
 
-/*
-User.create([
+
+/*User.create([
     {
         name:"harvey",
         email:"specter@yahoo.fr",
@@ -53,4 +58,5 @@ User.create([
         password:"wsxd94"
     },
 
-]) */ 
+]) */
+

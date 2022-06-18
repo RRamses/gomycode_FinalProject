@@ -1,30 +1,14 @@
-import express  from 'express';
-import register, { login } from './../controllers/AuthController.js'
+import express    from 'express';
+import {login}    from '../controllers/AuthLogin.js';
+import {register} from '../controllers/AuthRegister.js';
+import { AddQuestion } from '../controllers/AuthAddQuestion.js';
+import { AddReponse }   from '../controllers/AuthAddResponse.js';
 
-const routes  = express.Router()
+const Authroutes  = express.Router()
 
-const Authcontroller  = register
-const Authcontroller2 = login
+Authroutes.post('/register',register)
+Authroutes.post('/login',  login)
+Authroutes.post('/addquestion', AddQuestion)
+Authroutes.post('/addreponse:questionid', AddReponse)
 
-
-routes.post('/register',Authcontroller)
-routes.post('/login',  Authcontroller2  )
-
-
-/*fetch('http://localhost:3000')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err))*/
-/*
-routes.get('/login',(req,res)=>{
-    res.send('respond with a resource');
-})
-routes.get('/',(req,res)=>{ 
-        res.send('respond with a resource')
-    })
-
-routes.get('/register',(req,res)=>{
-    res.send('respond with a resource')
-})  */  
-
-export default routes ; 
+export default Authroutes ; 

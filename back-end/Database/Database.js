@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 const server="127.0.0.1:27017";
-const database="myDB"
+const database="mongodb+srv://RRamses:GN2JMkjUypN9pZKd@cluster0.cbww9gb.mongodb.net/?retryWrites=true&w=majority"
 
 /* creation de la base de donnee*/
 class Database{
@@ -13,7 +13,7 @@ class Database{
 
    /*liaison de la base de donnee a mongodb */
 _connect(){
-        mongoose.connect(`mongodb://${server}/${database}`)
+        mongoose.connect(`${database}`)
         .then(()=>{
             console.log('connexion a la bd reussit')
         }

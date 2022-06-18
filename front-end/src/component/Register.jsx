@@ -39,19 +39,17 @@ const Register=()=>{
                 );
                 console.log(JSON.stringify(response.data))
                 //const accessToken = response.data.token;
-                //const roles = response.data.roles;
-                
                 setSuccess(true)
 
         }catch(err){
             if(err.response.status === 403){
-                <p>no server response</p>
+                
                 seterrMsg('no server responses')
             }else if(err.response.status=== 405) {
-                <p>registration falled</p>
+                
                 seterrMsg('registration Falled')
             }else if(err.response.status=== 404) {
-                <p>registration falled</p>
+                
                 seterrMsg('il y a une erreur au niveau du cryptage')
             }
             errRef.current.focus()
@@ -61,7 +59,7 @@ const Register=()=>{
         <>
         { Success ? (
         <section>
-            <Home/>
+            <Home user={user} />
 
         </section>) :(
         
@@ -109,24 +107,7 @@ const Register=()=>{
                             required  
                             />
                 </div>
-                {/*<div className="form-group">
-                    <label for="confirm_pwd">Mot de passe(confirmation)
-                    
-                    
-                    </label>
-                    <input type="password"
-                        className="form-control" 
-                        id="confirm_pwd" 
-                        placeholder="Mot de passe"
-                        required  
-                        aria-invalid={validmatch ? "false": "true"}
-                        aria-describedby ="confirmnote"
-                        onFocus={()=> setuserFocus(true)}
-                        onBlur={()=> setuserFocus(false)} />
-
                 
-                
-        </div> */}
                 <br/>
                 
                 <button type="submit" className="btn btn-primary">Inscription</button>
