@@ -9,6 +9,6 @@ const Authroutes  = express.Router()
 Authroutes.post('/register',register)
 Authroutes.post('/login',  login)
 Authroutes.post('/addquestion', AddQuestion)
-Authroutes.post('/addreponse:questionid', AddReponse)
+Authroutes.post('/addreponse/:questionid', AddReponse)
 
 export default Authroutes ; 

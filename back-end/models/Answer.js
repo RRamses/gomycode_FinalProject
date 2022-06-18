@@ -7,7 +7,7 @@ const Schema = mongoose.Schema
 const answerSchema= new Schema({
     
     QId:{type:String},
-    reponse:{type:String},
+    response:{type:String},
     
 
 }, {timestamps:true})
