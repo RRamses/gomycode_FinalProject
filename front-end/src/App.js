@@ -23,7 +23,7 @@ function App() {
           
         <Route path='/home'  element={<Home  asks={asks}  count_ask={count_ask} answers={answers} />} />
         <Route path='/addquestion' element={<Addask />} /> 
-        <Route path='/addreponse' element={<Answer   asks={asks}   answers={answers} />} />
+        <Route path='/Reponses/:questionid' element={<Answer   asks={asks}   answers={answers} />} />
 
        {/* </Route> */}
 

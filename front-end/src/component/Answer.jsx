@@ -1,34 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { AddanswerAction, } from "../Redux/Action";
-import { Comment } from "./comment";
 
 
 
 const Answer =(props)=> {
-
-
-    
-    const [reponse , setreponse]=useState('')
-    const [count , setcount]=useState(0)
-    
-
-    
-    let dispatch = useDispatch()
-
-    const addanswer =() =>{
-        
-        setcount(prevcount=>prevcount+1 ); 
-        
-        let answer= {
-            reponse:reponse,
-            
-        }
-        dispatch(AddanswerAction(answer))
-        
-
-    }
     
 
     return(
@@ -40,10 +16,10 @@ const Answer =(props)=> {
                 <h1>{props.title}</h1>
                 <p>{props.contenu}</p>
                 <hr/>
-                <p>{count} reponses</p>
+                <p> reponses</p>
 
                 <div>
-                {props.answers.map((answer)=><Comment  commentaire={answer.reponse} key={Date.now()}     />)}
+                {/*props.answers.map((answer)=><Comment  commentaire={answer.reponse} key={Date.now()}     />) */}
 
                     </div>
 
@@ -51,11 +27,11 @@ const Answer =(props)=> {
                 type="text" 
                 id="contenu"
                 placeholder="ajouter votre commentaire" 
-                onChange={(e) =>setreponse(e.target.value)}
+                //onChange={(e) =>setreponse(e.target.value)}
                 required/>
                 
                 
-                <button type="submit" className="btnanswer" onClick={addanswer}>commenter</button>
+                <button type="submit" className="btnanswer" >commenter</button>
                 
 
             </div>

@@ -1,30 +1,17 @@
 
 
-export default function AddaskAction (ask) {
-    return (
-        {
-            type: 'ADD-ASK',
-            payload: ask
-        })
 
-}
+export const getQuestion = (questions) => {
+    return {
+        type: "GET_QUESTIONS",
+        payload: questions,
+    };
+};
 
-export function AddanswerAction (answer) {
-    return (
-        {
-            type: 'ADD-ANSWER',
-            payload: answer
-        })
-
-}
-
-
-export function countaskAction (count_ask) {
-    return (
-        {
-            type: 'COUNT-ASK',
-            payload: count_ask
-        })
-
-}
+export const selectedQuestion = (questions) => {
+    return {
+        type: "SELECTED_QUESTION_FOR_REPONSE",
+        payload: questions,
+    };
+};
 

@@ -1,14 +1,14 @@
 import express    from 'express';
-import {login}    from '../controllers/AuthLogin.js';
-import {register} from '../controllers/AuthRegister.js';
-import { AddQuestion } from '../controllers/AuthAddQuestion.js';
-import { AddReponse }   from '../controllers/AuthAddResponse.js';
+import {login}    from '../controllers/Login_Controller.js';
+import {register} from '../controllers/Register_Controller.js';
+import { AddQuestion } from '../controllers/AddQuestion.js';
+import { AddReponse }   from '../controllers/AddResponse.js';
 
 const Authroutes  = express.Router()
 
 Authroutes.post('/register',register)
 Authroutes.post('/login',  login)
 Authroutes.post('/addquestion', AddQuestion)
-Authroutes.post('/addreponse:questionid', AddReponse)
+Authroutes.post('/addreponse/:questionid', AddReponse)
 
 export default Authroutes ; 

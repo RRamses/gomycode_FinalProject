@@ -26,12 +26,12 @@ export const Addask = ()=>{
     },[title , contenue , categori ])
 
 
-    const QUESTION_URL='http://localhost:3500/addquestion' 
+    const ADDQUESTION_URL='http://localhost:3500/addquestion' 
 
     const handleSubmit = async (e) =>{
         e.preventDefault( )
         try{
-            const response = await axios.post(QUESTION_URL,
+            const response = await axios.post(ADDQUESTION_URL,
                 JSON.stringify({titre : title , contenu: contenue , categorie: categori}),
                 {
                     headers : {'Content-Type':'application/json'},

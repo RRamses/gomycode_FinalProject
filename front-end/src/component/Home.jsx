@@ -1,36 +1,8 @@
 
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Ask } from "./ask";
-
-
+import QuestionList from "./QuestionList";
 
 const Home = (props)=>{
-
-    const [questions,setquestions]=useState([])
-
-
-    useEffect(()=>{
-
-        fetch('http://localhost:3500/Questions')
-            .then(response=>{
-                const data = response.data;
-                setquestions([{data}]);
-                console.log("les données ont bien été recu");
-            })
-            .catch(()=>{
-                console.log("les données n'ont pas été recu")
-            })
-        },[])
-
-        
-            
-            
-            /* 
-                autre chose chaque question doit avoir un id afin que les reponses soit specifique a chaque question , c'est dans l ordre des choses
-                bon vas vivre ta vie de noctambule maintenant vas kiffer my G tu code depuis tot le matin deja , tu sais meme pas quel heure il est ....
-                 aaah sinon que il fais nuit ooh est ce que ta manger meme??
-                  ton riz contonais t attend depuis midi est ce que tu te rappele de sa... allez degage de vs code pour aujourd hui  */
 
     return(
         <>
@@ -74,20 +46,20 @@ const Home = (props)=>{
                     </ul>
                 </div>
 
-            <div className="question">
+            <div className="question" >
                 <div className="box1">
                     <h5>  {props.count_ask} questions</h5>
-                    <Link to={`/addask`} style={{color:'white'}}>
+                    <Link to={'/addquestion'} style={{color:'white'}}>
                     <button className="btnask" >
                         Posez une question
                     </button> </Link>
                 </div>
 
-                <div className="box2">
-                
-                {/*{questions.map((questions)=><Ask   titre={questions.titre} contenu={questions.contenu}  categorie={questions.categorie}    />)}*/}
+                <div className="box2" >
 
+                <QuestionList />
                 </div>
+
             </div>
 
         </div>
@@ -97,4 +69,5 @@ const Home = (props)=>{
 
     
 }
-export default Home;
+
+export default Home

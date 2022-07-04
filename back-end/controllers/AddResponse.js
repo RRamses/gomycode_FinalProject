@@ -6,50 +6,24 @@ import Answer from '../models/Answer.js';
 
 
 
-export async function AddReponse () {
+export async function AddReponse (req ,res,next ) {
     try {
-        const result = await findQuestion ()
-        
-        console.log('c est zooo',result)
+        let questionId= req.params.questionid
+        let answer = new Answer();
+        answer.response = req.body.response
+        answer.QId = questionId
+        await answer.save();
+
+        let question = await Question.findById(questionId);
+        //console.log(question);
+        question.reponses.push(answer);
+        await question.save();
+        res.json({success : true, question : question});
 
     }catch(err) {
         console.log('err', err)
-
+        res.json({success : false, error : "erreur lors de l'ajout de la reponse"});
     }
-}
-
-const  findQuestion = (req ,res,next ) => {
-
-    let response = new Answer({
-        response : req.body.reponse
-    }); /* l erreur est ici on me dit que body est indefinit (moi je comprend qu il dise que c est vide) */
-
-    let questionId=req.params.id
-
-    return new Promise ((resolve , reject) =>{
-
-        let find= Question.findById(questionId)
-
-        if(questionId == find){
-
-            find.reponses.push(response);
-            Answer.Qid= questionId ;
-            Answer.reponse= response ;
-            resolve('reponse ajouté a la question ')
-            res.json({
-                Answer,
-                message : resolve})
-
-        }else{
-            reject('Aucune question ne correspond a cet id ')
-            res.json({
-                message: reject
-            })
-        }
-
-
-    })
-
 }
 
 
