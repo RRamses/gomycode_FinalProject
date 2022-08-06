@@ -22,4 +22,18 @@ Question.find()
 
 }
 
+export async function findQuestionById (req ,res,next ) {
+    try {
+        let questionId= req.params.questionid;
+        let id= await Question.findById(questionId)
+        let ask=id
+
+        res.json({success : true, ask : ask});
+
+    }catch(err) {
+        console.log('err', err)
+        res.json({success : false, error : "erreur"});
+    }
+}
+
 

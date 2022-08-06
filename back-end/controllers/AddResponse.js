@@ -9,20 +9,28 @@ import Answer from '../models/Answer.js';
 export async function AddReponse (req ,res,next ) {
     try {
         let questionId= req.params.questionid
-        let answer = new Answer();
-        answer.response = req.body.response
-        answer.QId = questionId
+        
+        let answer = new Answer({
+            QId : req.params.questionid,
+            response : req.body.response
+        });
         await answer.save();
 
+        
         let question = await Question.findById(questionId);
         //console.log(question);
         question.reponses.push(answer);
         await question.save();
         res.json({success : true, question : question});
 
-    }catch(err) {
+    }catch(err) { 
+        if (res.status(401)){
         console.log('err', err)
-        res.json({success : false, error : "erreur lors de l'ajout de la reponse"});
+        res.json({success : false, error : "erreur lors de l'ajout de la reponse, probleme au niveau de l id"});
+        }else if (res.satus(402)){
+            console.log('err', err)
+            res.json({success : false, error : "erreur lors de l'ajout de la reponse, probleme au niveau de la reponse"});
+        }
     }
 }
 

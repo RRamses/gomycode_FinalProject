@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import { questionReducer, selectedQuestionReducer } from "./questionReducer";
+import { categorieReducer, findQuestionByIdReducer,  questionReducer, selectedQuestionReducer } from "./questionReducer";
 
 const reducers = combineReducers({
   allQuestions: questionReducer,
   question: selectedQuestionReducer,
+  findQuestionById:findQuestionByIdReducer,
+  findallcategorie:categorieReducer,
 });
 export default reducers;

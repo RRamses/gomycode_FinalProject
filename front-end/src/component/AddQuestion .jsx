@@ -5,7 +5,7 @@ import axios from '../api/axios';
 import Home from "./Home";
 
 
-export const Addask = ()=>{
+export const AddQuestion = ()=>{
 
     const titleRef = useRef();
     const errRef = useRef();
@@ -29,10 +29,10 @@ export const Addask = ()=>{
     const ADDQUESTION_URL='http://localhost:3500/addquestion' 
 
     const handleSubmit = async (e) =>{
-        e.preventDefault( )
+        e.preventDefault();
         try{
             const response = await axios.post(ADDQUESTION_URL,
-                JSON.stringify({titre : title , contenu: contenue , categorie: categori}),
+                JSON.stringify({titre : title , contenu: contenue , category: categori}),
                 {
                     headers : {'Content-Type':'application/json'},
                     withCredentials : true

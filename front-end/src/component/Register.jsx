@@ -79,10 +79,10 @@ const Register=()=>{
             <p ref={errRef} id="err" className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive"> {errMsg} </p>
                 
                 <div className="form-group">
-                    <label for="name">Nom</label>
+                    <label for="name">Nom d'utilisateur</label>
                     <input type="text" 
                         className="form-control"
-                        id="name" placeholder="Votre nom" />
+                        id="name" placeholder="Votre nom d utilisateur" />
                 </div> 
 
                 <div className="form-group">

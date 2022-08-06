@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux';
 import axios from '../api/axios';
 import { getQuestion } from '../redux/action';
@@ -6,9 +6,15 @@ import { Question } from './Questions';
 
 
 
-const QuestionList =()=>{
+const QuestionList =(props)=>{
     
-    const questions = useSelector((state) => state.allQuestions.questions);
+
+    const [loading, setLoading] = useState(true)
+
+    /* recuparation des questions dans  ma base de donées  */
+    const allquestions = useSelector((state) => state.allQuestions.questions);
+    const data = allquestions.question  
+    
     const dispatch = useDispatch();
     
 
@@ -18,6 +24,7 @@ const QuestionList =()=>{
             .catch((err) => {
             console.log("Err: ", err);
             });
+            setLoading(false)
         dispatch(getQuestion(response.data));
         
     };
@@ -28,21 +35,21 @@ const QuestionList =()=>{
         fetchQuestions();
     }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
-    console.log("AllQuestions:", questions);
-
-
 
     
-    const renderList=Object.keys(questions).map((question,index) => (<Question   question={question} key={index} />)  )
+
+    
 
     return(
             <div className="Questionlist">
-                {renderList} 
-                
-                 {/* Quand j execute rien ne s affiche
-                 j ai ajouté des elements a mon etat dans redux pour tester mais je me rend compte qu'il ne map pas le contenu de mon etat 
-                  pourtant j ai bel et bien recuperer le contenu de mon api et mon etat a ete mis a jour */}
 
+                {loading ? (
+                    <h2>loading</h2>
+                    ) :  
+                        data
+                    .filter((q) => q.titre.toLowerCase().includes(props.filter.toLowerCase()) )
+                    .map((question , index) => { return (   <Question   question={question} key={index} />)  })                       
+                }
 
             </div>
             

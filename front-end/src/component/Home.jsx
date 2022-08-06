@@ -1,11 +1,27 @@
 
+
+
+import { useState } from "react";
+
 import { Link } from "react-router-dom";
+import Categorie from "./Categorie";
+
 import QuestionList from "./QuestionList";
 
 const Home = (props)=>{
 
+        const [search,setsearch]=useState("")
+        
+            /*  fonction qui fait fonctionner la barre de recherche  */
+            const hanldeChangeFilter = (e) => {    
+                e.preventDefault();
+                setsearch(e.target.value) 
+                }
+
+
     return(
         <>
+
         
         <div className="header">
             <nav className="nav">
@@ -21,34 +37,15 @@ const Home = (props)=>{
                     <p>ce forum est ouvert a toutes les question liées a la programmation</p>
                     <p>(php, java script, c++, mongodb,ruby, html)</p>
                 </div>
-                <input className="search" placeholder="rechercher des questions"   /> 
+                <input className="search" placeholder="rechercher des questions"  onChange={hanldeChangeFilter} /> 
             </div>
         </div> 
         <div  className="main"> 
-                <div className="list"> 
-                    <ul className="list-group">
-                        <li className="list-group-item d-flex justify-content-between align-items-center">
-                        Reat
-                        <span  className="badge bg-primary rounded-pill">1</span>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-between align-items-center">
-                        PHP
-                        <span  className="badge bg-primary rounded-pill">2</span>
-                        </li>
-                        <li  className="list-group-item d-flex justify-content-between align-items-center">
-                        MONGODB
-                        <span  className="badge bg-primary rounded-pill">1</span>
-                        </li>
-                        <li  className="list-group-item d-flex justify-content-between align-items-center">
-                        HTML
-                        <span  className="badge bg-primary rounded-pill">1</span>
-                        </li>
-                    </ul>
-                </div>
+        
+             <Categorie />
 
             <div className="question" >
                 <div className="box1">
-                    <h5>  {props.count_ask} questions</h5>
                     <Link to={'/addquestion'} style={{color:'white'}}>
                     <button className="btnask" >
                         Posez une question
@@ -57,7 +54,7 @@ const Home = (props)=>{
 
                 <div className="box2" >
 
-                <QuestionList />
+                <QuestionList     filter={search}/> 
                 </div>
 
             </div>

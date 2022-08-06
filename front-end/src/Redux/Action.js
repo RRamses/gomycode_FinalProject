@@ -15,3 +15,24 @@ export const selectedQuestion = (questions) => {
     };
 };
 
+export const findQuestionById = (questions) => {
+  return {
+      type: "FIND_QUESTION_FOR_REPONSE",
+      payload: questions,
+  };
+};
+
+
+export const removeSelectedQuestion = () => {
+  return {
+    type:"REMOVE_SELECTED_QUESTION",
+  };
+};
+
+export const getCategorie = (categorie) => {
+  return {
+      type: "GET_CATEGORIE",
+      payload: categorie,
+  };
+};
+
