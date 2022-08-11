@@ -17,13 +17,13 @@ function App() {
     <div className="App">
       <Routes>
         {/*  we have securise these routes */}
-       {/* <Route element={<RequireAuth />} > */ }
+        <Route element={<RequireAuth />} > 
           
         <Route path='/home'  element={<Home   />} />
         <Route path='/addquestion' element={<AddQuestion  />} /> 
         <Route path='/Reponses/:questionId' element={<Answer  />} />
 
-       {/* </Route> */}
+   </Route> 
 
         {/*  public routes */} 
         <Route path='/login' element={<Connexion/>} />
