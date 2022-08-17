@@ -36,7 +36,7 @@ export const Connexion =() => {
                 {
                     headers : {
                         'Content-Type':'application/json',
-                        'Access-Control-Allow-Origin': 'https://gomycode-final-projectforum.netlify.app/' 
+                        'Access-Control-Allow-Origin': '*' 
                 },
                     withCredentials : true
                     

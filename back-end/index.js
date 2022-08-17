@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({
     app.use(function (req, res, next) {
 
         // Website you wish to allow to connect
-        res.setHeader('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
+        res.setHeader('Access-Control-Allow-Origin', '*');
     
         // Request methods you wish to allow
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -41,12 +41,12 @@ app.use(bodyParser.urlencoded({
         next();
     });
 
-
+/*
     const corsOption = {
         origin: 'https://gomycode-final-projectforum.netlify.app/',
         optionsSuccessStatus: 200 , // For legacy browser support
         methods: ['POST' , 'GET'],
-    }
+    }*/
 
     const corsOption2 = {
         origin: 'https://myforum-web.herokuapp.com/',
@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({
 
 
 
-app.use(cors(corsOption , corsOption2 ));
+app.use(cors( corsOption2 ));
 app.use(Authroutes)
 app.use(Getroutes)
 

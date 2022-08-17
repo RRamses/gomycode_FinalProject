@@ -96,7 +96,10 @@ const Answer =()=> {
             const response = await axios.post(ADDREPONSE_URL,
                 JSON.stringify({ QId: questionId , response : reponse}),
                 {
-                    headers : {'Content-Type':'application/json'},
+                    headers : {
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': '*' 
+                },
                     withCredentials : true
                 }
                 );
