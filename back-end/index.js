@@ -31,11 +31,17 @@ app.use(bodyParser.urlencoded({
         
     }
 
+    const corsOption2 = {
+        origin: 'https://myforum-web.herokuapp.com/',
+        optionsSuccessStatus: 200 , // For legacy browser support
+        methods: ['POST' , 'GET']
+        
+    }
 
 
 
 app.use(cors(corsOption));
-
+app.use(cors(corsOption2));
 app.use(Authroutes)
 app.use(Getroutes)
 
