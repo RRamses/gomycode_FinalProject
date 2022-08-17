@@ -51,7 +51,7 @@ export const Connexion =() => {
             }else if (err.response.status === 400){
                 seterrmsg('missing email or password')
             }else if (err.response.status === 401){  
-                 seterrmsg('unauthorized user no found ');
+                seterrmsg('unauthorized user no found ');
             }else if(err.response.status=== 402) {
                 seterrmsg('Login Falled password does match')
             }

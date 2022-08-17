@@ -111,8 +111,6 @@ export const AddQuestion = ()=>{
             
                 <button type="submit" className='btnadd' >POSEZ MA QUESTION</button>
 
-
-
             </form>
 
         </div>)}

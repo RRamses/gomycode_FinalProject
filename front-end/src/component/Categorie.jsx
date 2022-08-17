@@ -32,7 +32,6 @@ export const Categorie=()=>{
 
 
     useEffect(() => {
-
         fetchCategorie();
     }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
