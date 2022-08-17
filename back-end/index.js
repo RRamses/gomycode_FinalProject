@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     
         // Request headers you wish to allow
-        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
     
         // Set to true if you need the website to include cookies in the requests sent
         // to the API (e.g. in case you use sessions)
@@ -48,16 +48,7 @@ app.use(bodyParser.urlencoded({
         methods: ['POST' , 'GET'],
     }*/
 
-    const corsOption2 = {
-        origin: 'https://myforum-web.herokuapp.com/',
-        optionsSuccessStatus: 200 , // For legacy browser support
-        methods: ['POST' , 'GET']
-        
-    }
 
-
-
-app.use(cors( corsOption2 ));
 app.use(Authroutes)
 app.use(Getroutes)
 
