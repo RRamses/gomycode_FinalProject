@@ -26,7 +26,7 @@ export const AddQuestion = ()=>{
     },[title , contenue , categori ])
 
 
-    const ADDQUESTION_URL='http://localhost:3500/addquestion' 
+    const ADDQUESTION_URL='https://myforum-web.herokuapp.com/addquestion' 
 
     const handleSubmit = async (e) =>{
         e.preventDefault();

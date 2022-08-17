@@ -20,15 +20,6 @@ export async function Reponses (req ,res,next ) {
 }
 
 
-
-
-
-
-
-
-
-
-
 /*
 export const Reponses = (req,res,next) =>{
 

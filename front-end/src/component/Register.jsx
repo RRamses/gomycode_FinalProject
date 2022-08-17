@@ -25,7 +25,7 @@ const Register=()=>{
         seterrMsg('');
     },[user , pwd ])
 
-    const REGISTER_URL='http://localhost:3500/register' 
+    const REGISTER_URL='https://myforum-web.herokuapp.com/register' 
 
     const handleSubmit = async (e) =>{
         e.preventDefault( )

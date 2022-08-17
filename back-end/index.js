@@ -24,13 +24,23 @@ app.use(bodyParser.urlencoded({
 
 const corsOption = {
         origin: 'http://localhost:3000',
-        credentials : true,
         optionsSuccessStatus: 200 , // For legacy browser support
         methods: ['POST' , 'GET']
         
     }
 
+    const corsOption2 = {
+        origin: 'https://gomycode-final-projectforum.netlify.app',
+        optionsSuccessStatus: 200 , // For legacy browser support
+        methods: ['POST' , 'GET']
+        
+    }
+
+
+
+
 app.use(cors(corsOption));
+app.use(cors(corsOption2));
 app.use(Authroutes)
 app.use(Getroutes)
 

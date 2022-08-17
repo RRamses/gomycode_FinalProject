@@ -20,7 +20,7 @@ export const Categorie=()=>{
 
     const fetchCategorie = async () => {
         const response = await axios
-            .get("http://localhost:3500/findAllCategorie")
+            .get("https://myforum-web.herokuapp.com/findAllCategorie")
             .catch((err) => {
             console.log("Err: ", err);
             });

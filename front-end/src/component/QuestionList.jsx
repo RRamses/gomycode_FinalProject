@@ -20,7 +20,7 @@ const QuestionList =(props)=>{
 
     const fetchQuestions = async () => {
         const response = await axios
-            .get("http://localhost:3500/Questions")
+            .get("https://myforum-web.herokuapp.com/Questions")
             .catch((err) => {
             console.log("Err: ", err);
             });

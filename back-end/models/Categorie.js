@@ -1,8 +1,3 @@
-//C  c
-//Categorie  categorie
-
-
-
 
 
 import mongoose from "mongoose"

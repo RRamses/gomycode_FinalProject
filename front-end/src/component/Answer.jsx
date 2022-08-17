@@ -14,13 +14,6 @@ const Answer =()=> {
     const [loading, setLoading] = useState(true)
     const [load, setLoad] = useState(true)
 
-    
-
-
-
-
-
-
 
     /*  recuperer l' ID dans l url  */
 
@@ -30,7 +23,7 @@ const Answer =()=> {
 
     const fetchQuestionDetail = async (id) => {
         const response = await axios
-        .get(`http://localhost:3500/Reponses/${id}`)
+        .get(`https://myforum-web.herokuapp.com/Reponses/${id}`)
             .catch((err) => {
             console.log("Err: ", err);
         })
@@ -44,7 +37,7 @@ const Answer =()=> {
 
     const fetchfindQuestionById = async (id) => {
         const response = await axios
-            .get(`http://localhost:3500/findQuestionById/${id}`)
+            .get(`https://myforum-web.herokuapp.com/findQuestionById/${id}`)
             .catch((err) => {
             console.log("Err: ", err);
             });
@@ -94,7 +87,7 @@ const Answer =()=> {
         seterrMsg('');
     },[reponse , questionId])
 
-    const ADDREPONSE_URL=`http://localhost:3500/addreponse/${questionId}`
+    const ADDREPONSE_URL=`https://myforum-web.herokuapp.com/addreponse/${questionId}`
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -177,12 +170,4 @@ export default Answer ;
 
 
 
-/*        https://www.youtube.com/watch?v=T2nGvxrSjqs&list=PLttXt81M2FST3F053pJzBrpvvTO7pt5wS    
-
-https://www.youtube.com/watch?v=T2nGvxrSjqs&list=PLttXt81M2FSRxbOJa6oZPYIjCKRLO_mFB
-
-https://www.youtube.com/watch?v=ZDEAUI58iA8&list=PLttXt81M2FSTQ8mH-FFOyklbwgrK_gXu_
-
-https://www.youtube.com/c/LInvestisseurAfricain/playlists
-*/
 

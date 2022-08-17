@@ -1,15 +1,5 @@
 
 
-// afficher toute les categorie
-//afficher la categorie par rapport a la question mais pense que cest dans question controller faut faire ça
-//ajouter la categorie ecrite lors da l ajout de la reponse la section categorie de la reponse  
-
-
-
-
-
-
-
 import Categorie from '../models/Categorie.js';
 import Question from '../models/Question.js';
 
@@ -28,5 +18,4 @@ export async function FindAllCategorie (req,res,next){
 }
 }
 
-//afficher les question par rapport au categorie
 
