@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({
 
 
     const corsOption = {
-        origin: 'https://gomycode-final-projectforum.netlify.app',
+        origin: 'https://gomycode-final-projectforum.netlify.app/',
         optionsSuccessStatus: 200 , // For legacy browser support
         methods: ['POST' , 'GET']
         
