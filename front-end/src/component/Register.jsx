@@ -33,7 +33,10 @@ const Register=()=>{
             const response = await axios.post(REGISTER_URL,
                 JSON.stringify({email:user,password:pwd}),
                 {
-                    headers : {'Content-Type':'application/json'},
+                    headers : {
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': 'https://gomycode-final-projectforum.netlify.app/' 
+                },
                     withCredentials : true
                 }
                 );

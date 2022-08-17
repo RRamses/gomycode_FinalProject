@@ -34,8 +34,12 @@ export const Connexion =() => {
             const response = await axios.post(LOGIN_URL,
                 JSON.stringify({username:user,password:pwd}),
                 {
-                    headers : {'Content-Type':'application/json'},
+                    headers : {
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': 'https://gomycode-final-projectforum.netlify.app/' 
+                },
                     withCredentials : true
+                    
                 }
                 );
                 console.log(JSON.stringify(response.data))
@@ -51,7 +55,7 @@ export const Connexion =() => {
             }else if (err.response.status === 400){
                 seterrmsg('missing email or password')
             }else if (err.response.status === 401){  
-                seterrmsg('unauthorized user no found ');
+                 seterrmsg('unauthorized user no found ');
             }else if(err.response.status=== 402) {
                 seterrmsg('Login Falled password does match')
             }

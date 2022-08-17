@@ -34,7 +34,10 @@ export const AddQuestion = ()=>{
             const response = await axios.post(ADDQUESTION_URL,
                 JSON.stringify({titre : title , contenu: contenue , category: categori}),
                 {
-                    headers : {'Content-Type':'application/json'},
+                    headers : {
+                        'Content-Type':'application/json',
+                        'Access-Control-Allow-Origin': 'https://gomycode-final-projectforum.netlify.app/' 
+                },
                     withCredentials : true
                 }
                 );
