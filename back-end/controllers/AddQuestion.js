@@ -4,7 +4,10 @@ import Categorie from '../models/Categorie.js';
 import Question from '../models/Question.js';
 
 export async function AddQuestion (req,res,next){
+    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
+    
     try {
+        
         //recuperation des donnée saisie par l tutilisateur
         let titre =  req.body.titre
         let contenu = req.body.contenu

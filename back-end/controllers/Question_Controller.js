@@ -23,6 +23,7 @@ Question.find()
 }
 
 export async function findQuestionById (req ,res,next ) {
+    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
     try {
         let questionId= req.params.questionid;
         let id= await Question.findById(questionId)
