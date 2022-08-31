@@ -7,7 +7,6 @@ import Answer from '../models/Answer.js';
 
 
 export async function AddReponse (req ,res,next ) {
-    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
     try {
         let questionId= req.params.questionid
         

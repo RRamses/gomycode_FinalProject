@@ -6,7 +6,6 @@ import User from '../models/User.js';
 
 
 export const login =(req,res,next)=>{
-    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
     var username = req.body.username
     var password = req.body.password
 

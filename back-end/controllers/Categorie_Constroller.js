@@ -7,7 +7,6 @@ import Question from '../models/Question.js';
 //afficher toutes les categories
 
 export async function FindAllCategorie (req,res,next){
-    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
     try {
 
         let type=await Categorie.find()

@@ -4,7 +4,7 @@ import Categorie from '../models/Categorie.js';
 import Question from '../models/Question.js';
 
 export async function AddQuestion (req,res,next){
-    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
+  
     
     try {
         

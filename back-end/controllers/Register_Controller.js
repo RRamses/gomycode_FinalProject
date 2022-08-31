@@ -5,7 +5,6 @@ import User from '../models/User.js';
 
 
 export const register = (req,res,next) =>{
-    res.set('Access-Control-Allow-Origin', 'https://gomycode-final-projectforum.netlify.app/');
 
     bcrypt.hash(req.body.password, 10, function(err,hashedPass){
         
